@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 0.7rem;
+}
+
+#navbar {
+    width: min(90%, 900px);
+    margin: 0 auto;
+    padding: 0.6rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+#nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#nav-list button {
+    padding: 0.7rem 1rem;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: #263238;
+    cursor: pointer;
+    font: inherit;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#nav-list button:hover,
+#nav-list button:focus-visible {
+    background-color: #263238;
+    color: #fff;
+    outline: none;
+}   
+
+section {
+    scroll-margin-top: 6rem;
+}
+
+.gallery-carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-carousel img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.gallery-button {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 0;
+    border-radius: 50%;
+    background-color: rgba(38, 50, 56, 0.75);
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.4rem;
+    transform: translateY(-50%);
+}
+
+.gallery-button:hover,
+.gallery-button:focus-visible {
+    background-color: #263238;
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+.gallery-button.previous {
+    left: 1rem;
+}
+
+.gallery-button.next {
+    right: 1rem;
+}
+
+main {
+    width: min(90%, 900px);
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.78);
+    border-radius: 14px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+    .gallery-button.previous {
+        left: 0.5rem;
+    }
+
+    .gallery-button.next {
+        right: 0.5rem;
+    }
+}
