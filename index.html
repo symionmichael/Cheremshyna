@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini-hotel Cheremshyna</title>
+    <title>Cheremshyna Mini-Hotel — Velyatyno, Zakarpattia</title>
+    <meta name="description" content="Cheremshyna Mini-Hotel in Velyatyno, Zakarpattia — 50 m from the Tepli Vody thermal complex. Standard rooms with private mini-kitchens, from 450 UAH/night.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
     <header>
-
+        <div class="brand">Cheremshyna <span>Mini-Hotel</span></div>
         <nav id="navbar">
             <ul id="nav-list">
                 <li><button data-target="about">About us</button></li>
@@ -21,113 +26,121 @@
         </nav>
     </header>
 
-
+    <section class="hero">
+        <div class="hero-inner">
+            <h1>A calm mountain stay beside Zakarpattia's thermal waters</h1>
+            <p class="lead">
+                Cheremshyna Mini-Hotel sits in the village of Velyatyno, an easy
+                walk from the Tepli Vody thermal complex — a quiet base for a
+                family holiday or a slower countryside break.
+            </p>
+            <div class="hero-actions">
+                <button class="btn btn-primary" data-target="contact">Check availability</button>
+                <button class="btn btn-ghost" data-target="rooms">Explore rooms</button>
+            </div>
+            <dl class="hero-facts">
+                <div>
+                    <dt>50 m</dt>
+                    <dd>to the Tepli Vody thermal pools</dd>
+                </div>
+                <div>
+                    <dt>450 UAH</dt>
+                    <dd>per night, Standard room</dd>
+                </div>
+                <div>
+                    <dt>3 nights</dt>
+                    <dd>minimum stay</dd>
+                </div>
+            </dl>
+        </div>
+    </section>
 
     <main>
         <!-- Section About Us -->
         <section id="about">
             <h2>About us</h2>
             <p>
-                <strong>Cheremshyna Mini-Hotel</strong> is located in the village
-                of Velyatyno in the Zakarpattia region of Ukraine. It is a cozy
-                place for a family holiday, relaxation and exploring the beautiful
-                Zakarpattia countryside.
+                Cheremshyna Mini-Hotel is a small, family-run hotel in the
+                village of Velyatyno, in the Zakarpattia region of western
+                Ukraine — a good base for exploring the Carpathian countryside
+                at a slower pace.
             </p>
             <p>
-                The main advantage of the location is its proximity to the
-                <strong>"Tepli Vody" thermal complex</strong>, located only
-                approximately <strong>50 meters</strong> from the mini-hotel.
+                The hotel stands about 50 metres from the Tepli Vody thermal
+                complex, so a soak in the warm pools is never more than a
+                short walk away. Rooms open onto a private, enclosed garden
+                with parking for guests' cars, set back from the road.
             </p>
-
-            <ul>
-                <li>Comfortable Standard rooms;</li>
-                <li>Mini-kitchen in every room;</li>
-                <li>Large parking area on the property;</li>
-                <li>Balcony or loggia;</li>
-                <li>Wi-Fi and high-speed internet;</li>
-                <li>Video surveillance;</li>
-                <li>Autonomous heating;</li>
-                <li>Private enclosed territory.</li>
-            </ul>
-
         </section>
 
         <!-- Section Rooms -->
         <section id="rooms">
             <h2>Rooms</h2>
             <p>
-                Cheremshyna Mini-Hotel offers comfortable
-                <strong>Standard rooms</strong> equipped with everything
-                needed for a pleasant and relaxing stay.
-            </p>
-            <h3>Room Facilities</h3>
-            <ul>
-                <li>Double bed;</li>
-                <li>Single beds;</li>
-                <li>Additional sleeping place;</li>
-                <li>Private bathroom;</li>
-                <li>Shower cabin;</li>
-                <li>TV;</li>
-                <li>Wi-Fi;</li>
-                <li>Balcony or loggia;</li>
-                <li>Autonomous heating.</li>
-            </ul>
-            <h3>Private Mini-Kitchen</h3>
-            <p>
-                Every room has its own mini-kitchen where guests can
-                prepare meals independently during their stay.
+                Each Standard room is set up for a comfortable, self-catered
+                stay, with a private bathroom, a balcony or loggia, and a
+                fully equipped mini-kitchen.
             </p>
 
-            <ul>
-                <li>Refrigerator;</li>
-                <li>Induction cooktop;</li>
-                <li>Multicooker;</li>
-                <li>Electric kettle;</li>
-                <li>Kitchenware;</li>
-                <li>Hair dryer.</li>
-            </ul>
+            <div class="rooms-grid">
+                <div class="room-details">
+                    <h3>Room facilities</h3>
+                    <ul>
+                        <li>Double bed, or two single beds</li>
+                        <li>Extra bed available on request</li>
+                        <li>Private bathroom with shower cabin</li>
+                        <li>TV</li>
+                        <li>Balcony or loggia</li>
+                        <li>Hair dryer</li>
+                    </ul>
 
-            <h2>Prices for Rooms</h2>
-            <p>
-                The accommodation price depends on the dates and booking
-                conditions. Please contact us to confirm the current price
-                and availability.
-            </p>
+                    <h3>Private mini-kitchen</h3>
+                    <p>Guests can cook for themselves at any time. Every kitchen includes:</p>
+                    <ul>
+                        <li>Refrigerator</li>
+                        <li>Induction cooktop</li>
+                        <li>Multicooker</li>
+                        <li>Electric kettle</li>
+                        <li>Basic kitchenware and dishes</li>
+                    </ul>
+                </div>
 
-            <table>
-                <tr>
-                    <th>Room type</th>
-                    <th>Price</th>
-                </tr>
-                <tr>
-                    <td>Standard</td>
-                    <td>from 450 UAH / night</td>
-                </tr>
-            </table>
-
-            <p>
-                <strong>Minimum stay: 3 nights.</strong>
-            </p>
-
-            <p>
-                The listed price is based on the current accommodation
-                offer. Please confirm the final price when making a reservation.
-            </p>
+                <div class="pricing">
+                    <h3>Prices</h3>
+                    <p>
+                        Rates depend on the season and length of stay. Contact
+                        us to confirm availability and the current price.
+                    </p>
+                    <table>
+                        <tr>
+                            <th>Room type</th>
+                            <th>Price</th>
+                        </tr>
+                        <tr>
+                            <td>Standard</td>
+                            <td>from 450 UAH / night</td>
+                        </tr>
+                    </table>
+                    <p class="note">Minimum stay: 3 nights.</p>
+                    <p class="note">
+                        This reflects our current offer — the final price is
+                        confirmed at the time of booking.
+                    </p>
+                    <button class="btn btn-primary" data-target="contact">Check availability</button>
+                </div>
+            </div>
         </section>
 
         <!-- Section Services -->
         <section id="services">
-            <h2>Services</h2>
-            <h3>Included in the Price</h3>
-            <ul>
-                <li>Parking;</li>
-                <li>Wi-Fi;</li>
-                <li>Use of the private mini-kitchen;</li>
-                <li>Video surveillance;</li>
-                <li>Autonomous heating;</li>
-                <li>Access to the property grounds;</li>
-                <li>Balcony;</li>
-                <li>Car parking.</li>
+            <h2>Services &amp; amenities</h2>
+            <p>Included with every stay, at no extra charge:</p>
+            <ul class="amenities">
+                <li>Wi-Fi and high-speed internet</li>
+                <li>Free parking on site</li>
+                <li>Video surveillance</li>
+                <li>Autonomous heating throughout the property</li>
+                <li>Private, enclosed grounds</li>
             </ul>
         </section>
 
@@ -136,20 +149,43 @@
             <h2>Gallery</h2>
             <div class="gallery-carousel" aria-label="Hotel photo gallery">
                 <button class="gallery-button previous" type="button" aria-label="Previous photo">&#10094;</button>
-                <img id="gallery-image" src="./images/image1.jpg" alt="Cheremshyna Mini-Hotel">
+                <figure>
+                    <img id="gallery-image" src="./images/image1.jpg" alt="Cheremshyna Mini-Hotel">
+                    <figcaption id="gallery-caption">Cheremshyna Mini-Hotel</figcaption>
+                </figure>
                 <button class="gallery-button next" type="button" aria-label="Next photo">&#10095;</button>
             </div>
+            <div class="gallery-dots" id="gallery-dots"></div>
         </section>
 
         <!-- Section Contact -->
         <section id="contact">
             <h2>Contact</h2>
+            <dl class="contact-list">
+                <div>
+                    <dt>Address</dt>
+                    <dd>Velyatyno, Tiachiv district, Zakarpattia region, Ukraine</dd>
+                </div>
+                <div>
+                    <dt>Phone</dt>
+                    <dd><a href="tel:+380000000000">+380 00 000 0000</a></dd>
+                </div>
+                <div>
+                    <dt>Email</dt>
+                    <dd><a href="mailto:info@cheremshyna-hotel.example">info@cheremshyna-hotel.example</a></dd>
+                </div>
+                <div>
+                    <dt>Check-in / Check-out</dt>
+                    <dd>From 14:00 / until 11:00</dd>
+                </div>
+            </dl>
         </section>
     </main>
 
     <footer>
+        <p>&copy; <span id="year"></span> Cheremshyna Mini-Hotel, Velyatyno, Zakarpattia region</p>
     </footer>
-    
+
     <!-- JavaScript -->
     <script src="./javascript/script.js"></script>
 </body>
