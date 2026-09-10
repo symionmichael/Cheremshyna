@@ -47,10 +47,10 @@ const previousButton = document.querySelector(".gallery-button.previous");
 const nextButton = document.querySelector(".gallery-button.next");
 
 const galleryImages = [
-    { src: "./images/image1.jpg", alt: "Cheremshyna Mini-Hotel", caption: "Cheremshyna Mini-Hotel" },
-    { src: "./images/image2.jpg", alt: "Room at Cheremshyna Mini-Hotel", caption: "A Standard room" },
-    { src: "./images/image3.jpg", alt: "Hotel surroundings in Velyatyno", caption: "Around the hotel" },
-    { src: "./images/image4.jpg", alt: "Relaxing area at Cheremshyna Mini-Hotel", caption: "A place to relax" }
+    { src: "./frontend/images/image1.jpg", alt: "Cheremshyna Mini-Hotel", caption: "Cheremshyna Mini-Hotel" },
+    { src: "./frontend/images/image2.jpg", alt: "Room at Cheremshyna Mini-Hotel", caption: "A Standard room" },
+    { src: "./frontend/images/image3.jpg", alt: "Hotel surroundings in Velyatyno", caption: "Around the hotel" },
+    { src: "./frontend/images/image4.jpg", alt: "Relaxing area at Cheremshyna Mini-Hotel", caption: "A place to relax" }
 ];
 
 let currentImage = 0;
