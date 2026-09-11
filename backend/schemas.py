@@ -1,22 +1,21 @@
 from datetime import datetime
 from typing import Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class VisitCreate(BaseModel):
-    session_id: str
-    page: str
-    referrer: Optional[str] = None
+    session_id: str = Field(min_length=1, max_length=128)
+    page: str = Field(min_length=1, max_length=2048)
+    referrer: Optional[str] = Field(default=None, max_length=2048)
 
 
 class EventCreate(BaseModel):
-    session_id: str
-    event_type: str
-    element: Optional[str] = Field(default=None, alias="element_id")
+    model_config = ConfigDict(populate_by_name=True)
 
-    class Config:
-        populate_by_name = True
+    session_id: str = Field(min_length=1, max_length=128)
+    event_type: str = Field(min_length=1, max_length=64)
+    element: Optional[str] = Field(default=None, alias="element_id", max_length=512)
 
 
 class VisitOut(BaseModel):
@@ -51,8 +50,8 @@ class StatsOut(BaseModel):
 
 
 class LoginRequest(BaseModel):
-    username: str
-    password: str
+    username: str = Field(min_length=1, max_length=128)
+    password: str = Field(min_length=1, max_length=1024)
 
 
 class Token(BaseModel):

@@ -1,9 +1,10 @@
 import os
 from contextlib import asynccontextmanager
 
-from fastapi import Depends, FastAPI, HTTPException, Request
+from fastapi import Depends, FastAPI, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from sqlalchemy import inspect, text
 from sqlalchemy.orm import Session
 
 import auth
@@ -14,8 +15,28 @@ from config import ALLOWED_ORIGINS, STATIC_DIR
 from database import Base, engine, get_db
 
 
+def migrate_database() -> None:
+    inspector = inspect(engine)
+    table_names = set(inspector.get_table_names())
+
+    if "visits" in table_names:
+        visit_columns = {column["name"] for column in inspector.get_columns("visits")}
+        if "ip_adress" in visit_columns and "ip_address" not in visit_columns:
+            with engine.begin() as connection:
+                connection.execute(
+                    text("ALTER TABLE visits RENAME COLUMN ip_adress TO ip_address")
+                )
+
+    if "users" in table_names:
+        user_columns = {column["name"] for column in inspector.get_columns("users")}
+        if "created_at" not in user_columns:
+            with engine.begin() as connection:
+                connection.execute(text("ALTER TABLE users ADD COLUMN created_at DATETIME"))
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    migrate_database()
     Base.metadata.create_all(bind=engine)
     yield
 
@@ -52,7 +73,11 @@ def track_event(event: schemas.EventCreate, db: Session = Depends(get_db)):
 
 
 @app.post("/api/track/leave/{visit_id}")
-def track_leave(visit_id: int, seconds: int, db: Session = Depends(get_db)):
+def track_leave(
+    visit_id: int,
+    seconds: int = Query(ge=0, le=604800),
+    db: Session = Depends(get_db),
+):
     """Zavolá se při odchodu ze stránky - doplní čas strávený na stránce."""
     visit = db.query(models.Visit).filter(models.Visit.id == visit_id).first()
     if not visit:
@@ -73,8 +98,8 @@ def login(data: schemas.LoginRequest, db: Session = Depends(get_db)):
 
 @app.get("/api/admin/visits", response_model=list[schemas.VisitOut])
 def admin_visits(
-    limit: int = 200,
-    offset: int = 0,
+    limit: int = Query(default=200, ge=1, le=500),
+    offset: int = Query(default=0, ge=0),
     db: Session = Depends(get_db),
     current_admin: models.User = Depends(auth.get_current_admin),
 ):

@@ -27,6 +27,7 @@ def create_event(db: Session, event: schemas.EventCreate) -> models.Event:
     last_visit = (
         db.query(models.Visit)
         .filter(models.Visit.session_id == event.session_id)
+        .filter(models.Visit.time_on_page.is_(None))
         .order_by(models.Visit.id.desc())
         .first()
     )
