@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin panel</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        th, td { padding: 0.5rem; border-bottom: 1px solid #334155; text-align: left; font-size: 0.9rem; }
+        .stats { display: flex; gap: 1rem; margin: 1rem 0; }
+        .stat-box { background: #1e293b; padding: 1rem 1.5rem; border-radius: 8px; }
+        #login-box { max-width: 320px; margin: 4rem auto; }
+        input { display: block; width: 100%; margin: 0.5rem 0; padding: 0.5rem; border-radius: 6px; border: none; }
+        #dashboard { display: none; max-width: 900px; margin: 2rem auto; }
+    </style>
+</head>
+<body>
+
+    <div id="login-box">
+        <h2>Přihlášení administrátora</h2>
+        <input type="text" id="username" placeholder="Uživatelské jméno">
+        <input type="password" id="password" placeholder="Heslo">
+        <button id="login-btn">Přihlásit se</button>
+        <p id="login-error" style="color:#f87171;"></p>
+    </div>
+
+    <div id="dashboard">
+        <h2>Přehled návštěvnosti</h2>
+        <div class="stats" id="stats"></div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Čas</th><th>Stránka</th><th>Session</th><th>IP</th><th>Čas na stránce (s)</th>
+                </tr>
+            </thead>
+            <tbody id="visits-table"></tbody>
+        </table>
+    </div>
+
+    <script src="admin.js" data-api="http://127.0.0.1:8000"></script>
+</body>
+</html>
