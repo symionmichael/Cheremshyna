@@ -2,22 +2,51 @@
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin panel</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/style.css">
     <style>
-        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
-        th, td { padding: 0.5rem; border-bottom: 1px solid #334155; text-align: left; font-size: 0.9rem; }
-        .stats { display: flex; gap: 1rem; margin: 1rem 0; }
-        .stat-box { background: #1e293b; padding: 1rem 1.5rem; border-radius: 8px; }
-        #login-box { max-width: 320px; margin: 4rem auto; }
-        input { display: block; width: 100%; margin: 0.5rem 0; padding: 0.5rem; border-radius: 6px; border: none; }
-        #dashboard { display: none; max-width: 900px; margin: 2rem auto; }
+        body { padding: clamp(1rem, 4vw, 3rem); }
+        #login-box, #dashboard {
+            background: rgba(251, 248, 242, 0.96);
+            border: 1px solid var(--color-line);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+        }
+        #login-box { max-width: 400px; margin: 8vh auto; padding: clamp(1.5rem, 5vw, 2.5rem); }
+        #dashboard { display: none; max-width: 1100px; margin: 2rem auto; padding: clamp(1.25rem, 4vw, 2.5rem); }
+        .eyebrow { margin: 0 0 .35rem; color: var(--color-forest); font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+        h2 { margin-bottom: .45rem; }
+        .intro { margin: 0 0 1.75rem; }
+        input {
+            display: block; width: 100%; margin: .75rem 0; padding: .8rem .9rem;
+            border: 1px solid var(--color-line); border-radius: var(--radius-sm);
+            background: #fff; color: var(--color-ink); font: inherit;
+        }
+        input:focus { border-color: var(--color-thermal); box-shadow: 0 0 0 3px rgba(62, 124, 130, .15); outline: none; }
+        button {
+            width: 100%; margin-top: .5rem; padding: .8rem 1rem; border: 0; border-radius: var(--radius-sm);
+            background: var(--color-forest); color: #fff; font: 600 .95rem var(--font-body); cursor: pointer;
+        }
+        button:hover, button:focus-visible { background: var(--color-forest-dark); outline: none; }
+        .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 1.5rem 0 2rem; }
+        .stat-box { padding: 1.25rem; border: 1px solid var(--color-line); border-radius: 14px; background: #fff; color: var(--color-ink-soft); }
+        .stat-box strong { display: block; margin-bottom: .25rem; color: var(--color-forest-dark); font: 500 clamp(2rem, 5vw, 2.8rem)/1 var(--font-display); }
+        .table-wrap { overflow-x: auto; border: 1px solid var(--color-line); border-radius: 14px; background: #fff; }
+        table { width: 100%; min-width: 640px; border-collapse: collapse; }
+        th, td { padding: .8rem .75rem; border-bottom: 1px solid #eee7d9; text-align: left; font-size: .85rem; }
+        th { background: #f0eadc; color: var(--color-forest-dark); font-size: .7rem; letter-spacing: .05em; text-transform: uppercase; }
+        tbody tr:last-child td { border-bottom: 0; }
+        tbody tr:hover { background: #fcfaf5; }
+        @media (max-width: 640px) { body { padding: .75rem; } .stats { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
     <div id="login-box">
+        <p class="eyebrow">Cheremshyna</p>
         <h2>Přihlášení administrátora</h2>
+        <p class="intro">Přihlaste se pro zobrazení návštěvnosti webu.</p>
         <input type="text" id="username" placeholder="Uživatelské jméno">
         <input type="password" id="password" placeholder="Heslo">
         <button id="login-btn">Přihlásit se</button>
@@ -25,18 +54,22 @@
     </div>
 
     <div id="dashboard">
+        <p class="eyebrow">Cheremshyna · Administrace</p>
         <h2>Přehled návštěvnosti</h2>
+        <p class="intro">Aktuální souhrn zaznamenaných návštěv a aktivit.</p>
         <div class="stats" id="stats"></div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Čas</th><th>Stránka</th><th>Session</th><th>IP</th><th>Čas na stránce (s)</th>
-                </tr>
-            </thead>
-            <tbody id="visits-table"></tbody>
-        </table>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Čas</th><th>Stránka</th><th>Session</th><th>IP</th><th>Čas na stránce (s)</th>
+                    </tr>
+                </thead>
+                <tbody id="visits-table"></tbody>
+            </table>
+        </div>
     </div>
 
-    <script src="admin.js" data-api="http://127.0.0.1:8000"></script>
+    <script src="javascript/admin.js" data-api="http://127.0.0.1:8000"></script>
 </body>
 </html>
